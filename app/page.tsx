@@ -34,13 +34,15 @@ export default function Home() {
 								</p>
 							</div>
 							<div className="flex flex-col gap-4 min-[400px]:flex-row mt-2">
-								<Button
-									size="lg"
-									className="gap-2 shadow-lg font-medium"
-								>
-									<Store className="h-5 w-5" />
-									Créer une boutique
-								</Button>
+								<Link href="/market/create">
+									<Button
+										size="lg"
+										className="gap-2 shadow-lg font-medium"
+									>
+										<Store className="h-5 w-5" />
+										Créer une boutique
+									</Button>
+								</Link>
 								<Button
 									size="lg"
 									variant="outline"
