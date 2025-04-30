@@ -134,13 +134,6 @@ export default function ExplorePage() {
 		},
 	];
 
-	// Replace image paths with fallback when images are not available
-	const getImagePath = (path: string) => {
-		return `https://source.unsplash.com/random/300x300/?${
-			path.split('/').pop()?.split('.')[0] || 'product'
-		}`;
-	};
-
 	return (
 		<div className="flex flex-col min-h-screen">
 			{/* Hero section with search */}
@@ -393,72 +386,85 @@ export default function ExplorePage() {
 												key={product.id}
 												className="group"
 											>
-                                                <Card className="overflow-hidden h-full transition-all hover:shadow-md">
-                                                    <div className="relative aspect-square overflow-hidden bg-muted">
-                                                        {/* Beautiful placeholder instead of image */}
-                                                        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                                                            <div className="text-center p-4">
-                                                                <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2">
-                                                                    <ShoppingBag className="h-6 w-6 text-primary" />
-                                                                </div>
-                                                                <p className="text-sm font-medium text-foreground/80 line-clamp-2">
-                                                                    {product.name}
-                                                                </p>
-                                                            </div>
-                                                        </div>
-                                                        <div className="absolute top-2 right-2">
-                                                            <Button
-                                                                size="icon"
-                                                                variant="secondary"
-                                                                className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
-                                                            >
-                                                                <Heart className="h-4 w-4" />
-                                                            </Button>
-                                                        </div>
-                                                        {product.isNew && (
-                                                            <Badge className="absolute top-2 left-2">
-                                                                Nouveau
-                                                            </Badge>
-                                                        )}
-                                                    </div>
-                                                    <CardContent className="p-4">
-                                                        <div className="space-y-1">
-                                                            <p className="text-sm text-muted-foreground">
-                                                                {product.category}
-                                                            </p>
-                                                            <h3 className="font-medium truncate">
-                                                                {product.name}
-                                                            </h3>
-                                                            <div className="flex items-center gap-1">
-                                                                <Star className="h-4 w-4 fill-primary text-primary" />
-                                                                <span className="text-sm">
-                                                                    {product.rating}
-                                                                </span>
-                                                                <span className="text-sm text-muted-foreground">
-                                                                    ({product.reviews})
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </CardContent>
-                                                    <CardFooter className="p-4 pt-0 flex items-center justify-between">
-                                                        <p className="font-semibold">
-                                                            {new Intl.NumberFormat(
-                                                                'fr-MG',
-                                                                {
-                                                                    style: 'currency',
-                                                                    currency: 'MGA',
-                                                                    maximumFractionDigits: 0,
-                                                                }
-                                                            ).format(product.price)}
-                                                        </p>
-                                                        <Button
-                                                            size="sm"
-                                                            className="rounded-full h-8 w-8 p-0"
-                                                        >
-                                                            <ShoppingBag className="h-4 w-4" />
-                                                        </Button>
-                                                    </CardFooter>
-                                                </Card>
+												<Card className="overflow-hidden h-full transition-all hover:shadow-md">
+													<div className="relative aspect-square overflow-hidden bg-muted">
+														{/* Beautiful placeholder instead of image */}
+														<div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+															<div className="text-center p-4">
+																<div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2">
+																	<ShoppingBag className="h-6 w-6 text-primary" />
+																</div>
+																<p className="text-sm font-medium text-foreground/80 line-clamp-2">
+																	{
+																		product.name
+																	}
+																</p>
+															</div>
+														</div>
+														<div className="absolute top-2 right-2">
+															<Button
+																size="icon"
+																variant="secondary"
+																className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
+															>
+																<Heart className="h-4 w-4" />
+															</Button>
+														</div>
+														{product.isNew && (
+															<Badge className="absolute top-2 left-2">
+																Nouveau
+															</Badge>
+														)}
+													</div>
+													<CardContent className="p-4">
+														<div className="space-y-1">
+															<p className="text-sm text-muted-foreground">
+																{
+																	product.category
+																}
+															</p>
+															<h3 className="font-medium truncate">
+																{product.name}
+															</h3>
+															<div className="flex items-center gap-1">
+																<Star className="h-4 w-4 fill-primary text-primary" />
+																<span className="text-sm">
+																	{
+																		product.rating
+																	}
+																</span>
+																<span className="text-sm text-muted-foreground">
+																	(
+																	{
+																		product.reviews
+																	}
+																	)
+																</span>
+															</div>
+														</div>
+													</CardContent>
+													<CardFooter className="p-4 pt-0 flex items-center justify-between">
+														<p className="font-semibold">
+															{new Intl.NumberFormat(
+																'fr-MG',
+																{
+																	style: 'currency',
+																	currency:
+																		'MGA',
+																	maximumFractionDigits: 0,
+																}
+															).format(
+																product.price
+															)}
+														</p>
+														<Button
+															size="sm"
+															className="rounded-full h-8 w-8 p-0"
+														>
+															<ShoppingBag className="h-4 w-4" />
+														</Button>
+													</CardFooter>
+												</Card>
 											</Link>
 										))}
 									</div>
@@ -475,71 +481,86 @@ export default function ExplorePage() {
 													key={product.id}
 													className="group"
 												>
-                                                    <Card className="overflow-hidden h-full transition-all hover:shadow-md">
-                                                        <div className="relative aspect-square overflow-hidden bg-muted">
-                                                            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                                                                <div className="text-center p-4">
-                                                                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2">
-                                                                        <ShoppingBag className="h-6 w-6 text-primary" />
-                                                                    </div>
-                                                                    <p className="text-sm font-medium text-foreground/80 line-clamp-2">
-                                                                        {product.name}
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div className="absolute top-2 right-2">
-                                                                <Button
-                                                                    size="icon"
-                                                                    variant="secondary"
-                                                                    className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
-                                                                >
-                                                                    <Heart className="h-4 w-4" />
-                                                                </Button>
-                                                            </div>
-                                                            {product.isFeatured && (
-                                                                <Badge className="absolute top-2 left-2 bg-amber-500 hover:bg-amber-500/90">
-                                                                    En vedette
-                                                                </Badge>
-                                                            )}
-                                                        </div>
-                                                        <CardContent className="p-4">
-                                                            <div className="space-y-1">
-                                                                <p className="text-sm text-muted-foreground">
-                                                                    {product.category}
-                                                                </p>
-                                                                <h3 className="font-medium truncate">
-                                                                    {product.name}
-                                                                </h3>
-                                                                <div className="flex items-center gap-1">
-                                                                    <Star className="h-4 w-4 fill-primary text-primary" />
-                                                                    <span className="text-sm">
-                                                                        {product.rating}
-                                                                    </span>
-                                                                    <span className="text-sm text-muted-foreground">
-                                                                        ({product.reviews})
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </CardContent>
-                                                        <CardFooter className="p-4 pt-0 flex items-center justify-between">
-                                                            <p className="font-semibold">
-                                                                {new Intl.NumberFormat(
-                                                                    'fr-MG',
-                                                                    {
-                                                                        style: 'currency',
-                                                                        currency: 'MGA',
-                                                                        maximumFractionDigits: 0,
-                                                                    }
-                                                                ).format(product.price)}
-                                                            </p>
-                                                            <Button
-                                                                size="sm"
-                                                                className="rounded-full h-8 w-8 p-0"
-                                                            >
-                                                                <ShoppingBag className="h-4 w-4" />
-                                                            </Button>
-                                                        </CardFooter>
-                                                    </Card>
+													<Card className="overflow-hidden h-full transition-all hover:shadow-md">
+														<div className="relative aspect-square overflow-hidden bg-muted">
+															<div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
+																<div className="text-center p-4">
+																	<div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2">
+																		<ShoppingBag className="h-6 w-6 text-primary" />
+																	</div>
+																	<p className="text-sm font-medium text-foreground/80 line-clamp-2">
+																		{
+																			product.name
+																		}
+																	</p>
+																</div>
+															</div>
+															<div className="absolute top-2 right-2">
+																<Button
+																	size="icon"
+																	variant="secondary"
+																	className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
+																>
+																	<Heart className="h-4 w-4" />
+																</Button>
+															</div>
+															{product.isFeatured && (
+																<Badge className="absolute top-2 left-2 bg-amber-500 hover:bg-amber-500/90">
+																	En vedette
+																</Badge>
+															)}
+														</div>
+														<CardContent className="p-4">
+															<div className="space-y-1">
+																<p className="text-sm text-muted-foreground">
+																	{
+																		product.category
+																	}
+																</p>
+																<h3 className="font-medium truncate">
+																	{
+																		product.name
+																	}
+																</h3>
+																<div className="flex items-center gap-1">
+																	<Star className="h-4 w-4 fill-primary text-primary" />
+																	<span className="text-sm">
+																		{
+																			product.rating
+																		}
+																	</span>
+																	<span className="text-sm text-muted-foreground">
+																		(
+																		{
+																			product.reviews
+																		}
+																		)
+																	</span>
+																</div>
+															</div>
+														</CardContent>
+														<CardFooter className="p-4 pt-0 flex items-center justify-between">
+															<p className="font-semibold">
+																{new Intl.NumberFormat(
+																	'fr-MG',
+																	{
+																		style: 'currency',
+																		currency:
+																			'MGA',
+																		maximumFractionDigits: 0,
+																	}
+																).format(
+																	product.price
+																)}
+															</p>
+															<Button
+																size="sm"
+																className="rounded-full h-8 w-8 p-0"
+															>
+																<ShoppingBag className="h-4 w-4" />
+															</Button>
+														</CardFooter>
+													</Card>
 												</Link>
 											))}
 									</div>
@@ -556,76 +577,93 @@ export default function ExplorePage() {
 													key={product.id}
 													className="group"
 												>
-                                                    <Card className="overflow-hidden h-full transition-all hover:shadow-md">
-                                                        <div className="relative aspect-square overflow-hidden bg-muted">
-                                                            {/* Beautiful placeholder instead of image */}
-                                                            <div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-blue-100 flex items-center justify-center">
-                                                                <div className="relative w-full h-full overflow-hidden">
-                                                                    <div className="absolute inset-0 flex items-center justify-center">
-                                                                        <div className="text-center p-4">
-                                                                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center mx-auto mb-3">
-                                                                                <span className="text-white font-bold text-lg">New</span>
-                                                                            </div>
-                                                                            <p className="text-sm font-medium text-foreground/80">
-                                                                                {product.name}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div className="absolute inset-0 bg-white/10 backdrop-blur-sm bg-opacity-5"></div>
-                                                                    <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-background to-transparent"></div>
-                                                                </div>
-                                                            </div>
-                                                            <div className="absolute top-2 right-2">
-                                                                <Button
-                                                                    size="icon"
-                                                                    variant="secondary"
-                                                                    className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
-                                                                >
-                                                                    <Heart className="h-4 w-4" />
-                                                                </Button>
-                                                            </div>
-                                                            <Badge className="absolute top-2 left-2 bg-emerald-500 hover:bg-emerald-500/90">
-                                                                Nouveau
-                                                            </Badge>
-                                                        </div>
-                                                        <CardContent className="p-4">
-                                                            <div className="space-y-1">
-                                                                <p className="text-sm text-muted-foreground">
-                                                                    {product.category}
-                                                                </p>
-                                                                <h3 className="font-medium truncate">
-                                                                    {product.name}
-                                                                </h3>
-                                                                <div className="flex items-center gap-1">
-                                                                    <Star className="h-4 w-4 fill-primary text-primary" />
-                                                                    <span className="text-sm">
-                                                                        {product.rating}
-                                                                    </span>
-                                                                    <span className="text-sm text-muted-foreground">
-                                                                        ({product.reviews})
-                                                                    </span>
-                                                                </div>
-                                                            </div>
-                                                        </CardContent>
-                                                        <CardFooter className="p-4 pt-0 flex items-center justify-between">
-                                                            <p className="font-semibold">
-                                                                {new Intl.NumberFormat(
-                                                                    'fr-MG',
-                                                                    {
-                                                                        style: 'currency',
-                                                                        currency: 'MGA',
-                                                                        maximumFractionDigits: 0,
-                                                                    }
-                                                                ).format(product.price)}
-                                                            </p>
-                                                            <Button
-                                                                size="sm"
-                                                                className="rounded-full h-8 w-8 p-0"
-                                                            >
-                                                                <ShoppingBag className="h-4 w-4" />
-                                                            </Button>
-                                                        </CardFooter>
-                                                    </Card>
+													<Card className="overflow-hidden h-full transition-all hover:shadow-md">
+														<div className="relative aspect-square overflow-hidden bg-muted">
+															{/* Beautiful placeholder instead of image */}
+															<div className="absolute inset-0 bg-gradient-to-br from-emerald-100 to-blue-100 flex items-center justify-center">
+																<div className="relative w-full h-full overflow-hidden">
+																	<div className="absolute inset-0 flex items-center justify-center">
+																		<div className="text-center p-4">
+																			<div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-400 to-blue-500 flex items-center justify-center mx-auto mb-3">
+																				<span className="text-white font-bold text-lg">
+																					New
+																				</span>
+																			</div>
+																			<p className="text-sm font-medium text-foreground/80">
+																				{
+																					product.name
+																				}
+																			</p>
+																		</div>
+																	</div>
+																	<div className="absolute inset-0 bg-white/10 backdrop-blur-sm bg-opacity-5"></div>
+																	<div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t from-background to-transparent"></div>
+																</div>
+															</div>
+															<div className="absolute top-2 right-2">
+																<Button
+																	size="icon"
+																	variant="secondary"
+																	className="h-8 w-8 rounded-full opacity-80 backdrop-blur-sm"
+																>
+																	<Heart className="h-4 w-4" />
+																</Button>
+															</div>
+															<Badge className="absolute top-2 left-2 bg-emerald-500 hover:bg-emerald-500/90">
+																Nouveau
+															</Badge>
+														</div>
+														<CardContent className="p-4">
+															<div className="space-y-1">
+																<p className="text-sm text-muted-foreground">
+																	{
+																		product.category
+																	}
+																</p>
+																<h3 className="font-medium truncate">
+																	{
+																		product.name
+																	}
+																</h3>
+																<div className="flex items-center gap-1">
+																	<Star className="h-4 w-4 fill-primary text-primary" />
+																	<span className="text-sm">
+																		{
+																			product.rating
+																		}
+																	</span>
+																	<span className="text-sm text-muted-foreground">
+																		(
+																		{
+																			product.reviews
+																		}
+																		)
+																	</span>
+																</div>
+															</div>
+														</CardContent>
+														<CardFooter className="p-4 pt-0 flex items-center justify-between">
+															<p className="font-semibold">
+																{new Intl.NumberFormat(
+																	'fr-MG',
+																	{
+																		style: 'currency',
+																		currency:
+																			'MGA',
+																		maximumFractionDigits: 0,
+																	}
+																).format(
+																	product.price
+																)}
+															</p>
+															<Button
+																size="sm"
+																className="rounded-full h-8 w-8 p-0"
+															>
+																<ShoppingBag className="h-4 w-4" />
+															</Button>
+														</CardFooter>
+													</Card>
 												</Link>
 											))}
 									</div>
