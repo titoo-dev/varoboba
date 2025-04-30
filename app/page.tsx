@@ -34,7 +34,7 @@ export default function Home() {
 								</p>
 							</div>
 							<div className="flex flex-col gap-4 min-[400px]:flex-row mt-2">
-								<Link href="/market/create">
+								<Link href="/store/create">
 									<Button
 										size="lg"
 										className="gap-2 shadow-lg font-medium"

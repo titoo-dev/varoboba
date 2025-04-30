@@ -21,7 +21,7 @@ import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
 import { Store, MapPin, Clock, Image as ImageIcon, Upload } from 'lucide-react';
 
-export default function CreateMarketPage() {
+export default function CreateStorePage() {
 	return (
 		<div className="container max-w-4xl py-10 mx-auto">
 			<div className="mb-8 space-y-4">
