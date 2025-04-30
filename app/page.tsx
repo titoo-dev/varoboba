@@ -43,14 +43,16 @@ export default function Home() {
 										Créer une boutique
 									</Button>
 								</Link>
-								<Button
-									size="lg"
-									variant="outline"
-									className="gap-2 border-primary/20 hover:bg-primary/5 font-medium"
-								>
-									<ShoppingBag className="h-5 w-5" />
-									Explorer les produits
-								</Button>
+								<Link href="/explore">
+									<Button
+										size="lg"
+										variant="outline"
+										className="gap-2 border-primary/20 hover:bg-primary/5 font-medium"
+									>
+										<ShoppingBag className="h-5 w-5" />
+										Explorer les produits
+									</Button>
+								</Link>
 							</div>
 						</div>
 						<div className="mx-auto lg:mx-0 relative">
