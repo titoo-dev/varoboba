@@ -141,11 +141,7 @@ export default function StorePage() {
 
 					{/* Content */}
 					<div className="relative h-full w-full flex items-center justify-center">
-						<div className="text-3xl md:text-4xl font-bold text-foreground">
-							<span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-								{storeData.name}
-							</span>
-						</div>
+						<div className="text-3xl md:text-4xl font-bold text-foreground"></div>
 					</div>
 
 					{/* Bottom decorative wave */}
