@@ -87,7 +87,7 @@ export default function Home() {
 			</section>
 
 			{/* Features section */}
-			<section className="w-full py-12 md:py-24 lg:py-32 bg-background">
+			<section className="w-full py-12 md:py-24 lg:py-32 bg-slate-50 dark:bg-slate-900/20">
 				<div className="container px-4 md:px-6 mx-auto max-w-7xl">
 					<div className="flex flex-col items-center justify-center space-y-4 text-center">
 						<div className="space-y-2">
@@ -104,7 +104,7 @@ export default function Home() {
 						{features.map((feature) => (
 							<Card
 								key={feature.title}
-								className="bg-background border-border"
+								className="bg-white dark:bg-slate-800 border-border hover:shadow-md transition-shadow"
 							>
 								<CardContent className="p-6 flex flex-col items-center text-center space-y-4">
 									<div className="rounded-full p-3 bg-primary/10">
@@ -126,20 +126,26 @@ export default function Home() {
 			{/* CTA section */}
 			<section className="w-full py-12 md:py-24 lg:py-32 bg-primary/5">
 				<div className="container px-4 md:px-6 mx-auto max-w-7xl">
-					<div className="flex flex-col items-center justify-center space-y-4 text-center">
-						<div className="space-y-2">
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+					<div className="flex flex-col items-center justify-center space-y-8 text-center">
+						<div className="space-y-4">
+							<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-2 leading-tight">
 								Rejoignez notre communauté
 							</h2>
-							<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+							<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed mx-auto leading-relaxed">
 								Commencez à vendre ou à acheter dès aujourd'hui
 								et participez à la révolution du e-commerce à
 								Madagascar.
 							</p>
 						</div>
-						<div className="flex flex-col gap-2 min-[400px]:flex-row">
-							<Button size="lg">S'inscrire</Button>
-							<Button size="lg" variant="outline">
+						<div className="flex flex-col gap-3 min-[400px]:flex-row pt-4">
+							<Button size="lg" className="px-8">
+								S'inscrire
+							</Button>
+							<Button
+								size="lg"
+								variant="outline"
+								className="px-8"
+							>
 								En savoir plus
 							</Button>
 						</div>
