@@ -19,19 +19,32 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
 import { Store, MapPin, Clock, Image as ImageIcon, Upload } from 'lucide-react';
 
 export default function CreateStorePage() {
 	return (
 		<div className="container max-w-4xl py-10 mx-auto">
 			<div className="mb-8 space-y-4">
-				<div className="flex items-center space-x-2">
-					<div className="rounded-full bg-primary/10 p-2">
-						<Store className="h-5 w-5 text-primary" />
+				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+					<div className="flex items-center space-x-2">
+						<div className="rounded-full bg-primary/10 p-2">
+							<Store className="h-5 w-5 text-primary" />
+						</div>
+						<h1 className="text-3xl font-bold tracking-tight">
+							Créer votre boutique
+						</h1>
 					</div>
-					<h1 className="text-3xl font-bold tracking-tight">
-						Créer votre boutique
-					</h1>
+					<Link
+						href="/store/preview"
+						className="inline-flex items-center border border-primary/20 hover:border-primary/40 bg-primary/5 hover:bg-primary/10 text-foreground rounded-md h-10 px-4 py-2 gap-2 text-sm font-medium"
+					>
+						<div className="w-5 h-5 rounded-full overflow-hidden bg-background/80 flex items-center justify-center">
+							<Store className="h-3 w-3 text-primary" />
+						</div>
+						<span>Prévisualiser ma boutique</span>
+						<div className="h-2 w-2 animate-pulse rounded-full bg-primary/60"></div>
+					</Link>
 				</div>
 				<p className="text-muted-foreground">
 					Remplissez les informations ci-dessous pour créer votre
